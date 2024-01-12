@@ -19,7 +19,8 @@ def generate_qr():
     img.save("./static/qrcode.png")
     # return send_file("static/qrcode.png" ,as_attachment=True),
     return render_template('qr_gen.html')
-    
+# Disable caching for development
+app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
     
 if __name__ == ('__main__'):
     app.run(debug=True)
